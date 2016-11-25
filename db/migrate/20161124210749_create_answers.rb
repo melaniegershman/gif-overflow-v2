@@ -5,9 +5,6 @@ class CreateAnswers < ActiveRecord::Migration
       t.references :user, null: false, index: true
       t.references :question, null: false, index: true
 
-
-
-
       t.timestamps(null: false)
     end
   end
