@@ -9,6 +9,6 @@ class CreateQuestions < ActiveRecord::Migration
       t.timestamps(null: false)
     end
 
-    add_index :questions [:user, :answer]
+    add_index :questions, [:user, :answer]
   end
 end
