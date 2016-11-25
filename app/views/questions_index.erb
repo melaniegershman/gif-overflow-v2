@@ -1,3 +1,4 @@
 <div class='container'>
-  <%= erb _vote_form %>
+  <% @voteable = @question %>
+  <%= erb: 'votes/_vote_form' %>
 </div>
