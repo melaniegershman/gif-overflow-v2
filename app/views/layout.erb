@@ -16,17 +16,25 @@
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
 
-  <title></title>
+  <title>Gif Overflow</title>
 </head>
 <body>
 
   <nav>
-    <div class="nav-wrapper">
-      <a href="#" class="brand-logo">Logo</a>
+    <div class="nav-wrapper blue">
+      <a href="/" class="brand-logo">Gif Overflow</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <% if logged_in? %>
+        <li><a href="/users/<%=current_user.id%>"><%= current_user.username %></a></li>
+        <li><form id="logout" action="/sessions" method="post">
+            <input type="hidden" name="_method" value="delete">
+            <input type="submit" value="Log Out">
+          </form></li>
         <li><a href="/">Home</a></li>
-        <li><a href="">Login</a></li>
+      <% else %>  
+        <li><a href="/sessions/new">Log In</a></li>
         <li><a href="/users/new">Register</a></li>
+      <% end %>
       </ul>
     </div>
   </nav>
