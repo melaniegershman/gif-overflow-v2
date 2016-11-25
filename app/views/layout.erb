@@ -21,12 +21,12 @@
 <body>
 
   <nav>
-    <div class="nav-wrapper">
+    <div class="nav-wrapper blue">
       <a href="/" class="brand-logo">Gif Overflow</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
       <% if logged_in? %>
         <li><a href="/users/<%=current_user.id%>"><%= current_user.username %></a></li>
-        <li><form action="/sessions" method="post">
+        <li><form id="logout" action="/sessions" method="post">
             <input type="hidden" name="_method" value="delete">
             <input type="submit" value="Log Out">
           </form></li>
