@@ -8,7 +8,7 @@ helpers do
   end
 
   def login
-    session[:user] = @user.id
+    session[:user_id] = @user.id
   end
 
   def logout
