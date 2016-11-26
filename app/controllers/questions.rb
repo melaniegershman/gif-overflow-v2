@@ -12,6 +12,8 @@ end
 # show specific question
 get '/questions/:id' do
   @question = Question.find_by_id(params[:id])
+  @author = User.find_by_id(@question.user_id)
+  # binding.pry
   erb :'questions/show'
 end
 

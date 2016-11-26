@@ -1,7 +1,7 @@
 
 <div class="container">
 
-  <p><h4><%= @question.title %></h4> <h6><%= User.find_by_id(@question.user_id).username%></p>
+  <p><h4><%= @question.title %></h4> <h6><%= @author.username%></p>
   <hr><br>
   <h6><%= @question.body %></h6>
 
