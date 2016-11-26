@@ -1,3 +1,8 @@
+
 <div class="container">
-  here are specific question details
+
+  <p><h4><%= @question.title %></h4> <h6><%= User.find_by_id(@question.user_id).username%></p>
+  <hr><br>
+  <h6><%= @question.body %></h6>
+
 </div>
