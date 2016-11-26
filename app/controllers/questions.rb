@@ -12,12 +12,14 @@ end
 # show specific question
 get '/questions/:id' do
   @question = Question.find_by_id(params[:id])
+  @answers = Answer.find_by_id(params[:id])
   erb :'questions/show'
 end
 
 # create a new question
 post '/questions' do
-  @question = Question.new(params[:question])
+  # binding.pry
+  @question = Question.new(title: params[:question], body: params[:body], user_id: current_user[:id])
 
   if @question.save
     puts "question saved!"
@@ -45,4 +47,10 @@ put '/questions/:id' do
     @errors = @user.errors.full_messages
     erb :'questions/edit'
   end
+end
+
+delete '/question/:id' do
+  @question = Question.find_by_id(params[:id])
+  @question.destroy
+  redirect '/questions/index'
 end
