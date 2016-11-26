@@ -9,7 +9,7 @@ post '/sessions' do
     login
     puts "user has logged in!"
     redirect "/users/#{@user.id}"
-  elsif !@user
+  else
     @errors = @user.errors.full_messages
     erb :'sessions/new'
   end
