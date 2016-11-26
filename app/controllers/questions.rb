@@ -24,7 +24,7 @@ post '/questions' do
     redirect "/questions/#{@question.id}"
   else
     @errors = @user.errors.full_messages
-    erb :"_errors", layout: false, locals: {question: @question}
+    erb :'questions/new'
   end
 end
 
@@ -43,6 +43,6 @@ put '/questions/:id' do
     redirect "/questions/#{@question.id}"
   else
     @errors = @user.errors.full_messages
-    erb :"_errors", layout: false, locals: {question: @question}
+    erb :'questions/edit'
   end
 end

@@ -3,18 +3,15 @@ get '/sessions/new' do
 end
 
 post '/sessions' do
-  @user = User.find_by_username(params[:username])
+  @user = User.find_by_email(params[:email])
 
   if @user
     login
-    # reinstate the below redirect once we have user pages:
-    # redirect "/users/#{@user.id}"
     puts "user has logged in!"
     redirect "/users/#{@user.id}"
-  else
+  elsif !@user
     @errors = @user.errors.full_messages
-    
-    erb :"_errors", layout: false, locals: {question: @question}
+    erb :'sessions/new'
   end
 
 end

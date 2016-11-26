@@ -9,10 +9,12 @@ post '/users' do
     login
     redirect "/users/#{@user.id}"
   else
-
+    puts "Error!"
     @errors =  @user.errors.full_messages
+    puts "#{@errors}"
     # binding.pry
-    erb :'_errors'
+    # erb :'_errors', layout: false
+    erb :'users/new'
   end
  end
 
