@@ -1,7 +1,6 @@
 
 <div class="container">
-
-  <p><h4><%= @question.title %></h4> <h6><%= @author.username%></p>
+  <p><h4><%= @question.title %></h4> <h6><%= @question.user.username%></p>
   <hr><br>
   <h6><%= @question.body %></h6>
 
