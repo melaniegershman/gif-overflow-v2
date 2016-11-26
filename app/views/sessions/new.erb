@@ -1,0 +1,14 @@
+<div class="container">
+
+  <%= erb :'_errors' %>
+
+    <form action="/sessions" method="post">
+    <label for="email">Email:</label>
+    <input type="text" name="email">
+
+    <label for="password_hashed">Password:</label>
+    <input type="password" name="password">
+
+    <input class="waves-effect waves-teal btn-flat" type="submit" value="Log In">
+  </form>
+</div>

@@ -1,0 +1,17 @@
+<div class="container">
+  <article>
+    <h2><%= @question.title %></h2>
+    <h3><%= @question.body %></h3>
+    <div class="author"><%= @question.user.username %></div>
+    <% @voteable = @question %>
+    <%= erb :'votes/_vote_form' %>
+
+    <div class="answers">
+      <% @answers = @question.answers %>
+      <%= erb :'answers/index' %>
+    </div>
+    
+    <%= erb :'answers/_form' %>
+
+  </article>
+</div>

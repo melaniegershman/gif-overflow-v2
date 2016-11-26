@@ -1,0 +1,16 @@
+<div class="container">
+
+<% if logged_in? %>
+<p><a href="/questions/new">Post a new question here!</a></p>
+<% end %>
+</div>
+
+<div class="container">
+  <% if @questions %>
+    <ul>
+    <% @questions.each do |question| %>
+      <li><a href="/questions/<%=question.id%>"><%= question.title %></a></li>
+    <% end %>
+    </ul>
+  <% end %>
+</div>
