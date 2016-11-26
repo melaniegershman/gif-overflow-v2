@@ -12,6 +12,7 @@ end
 # show specific question
 get '/questions/:id' do
   @question = Question.find_by_id(params[:id])
+  @answers = Answer.find_by_id(params[:id])
   erb :'questions/show'
 end
 
@@ -46,4 +47,10 @@ put '/questions/:id' do
     @errors = @user.errors.full_messages
     erb :'questions/edit'
   end
+end
+
+delete '/question/:id' do
+  @question = Question.find_by_id(params[:id])
+  @question.destroy
+  redirect '/questions/index'
 end
