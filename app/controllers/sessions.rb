@@ -10,10 +10,11 @@ post '/sessions' do
     # reinstate the below redirect once we have user pages:
     # redirect "/users/#{@user.id}"
     puts "user has logged in!"
-    redirect '/'
+    redirect "/users/#{@user.id}"
   else
     @errors = @user.errors.full_messages
-    redirect '/sessions/new'
+    
+    erb :"_errors", layout: false, locals: {question: @question}
   end
 
 end

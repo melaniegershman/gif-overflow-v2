@@ -4,6 +4,11 @@ get '/questions' do
   erb :'questions/index'
 end
 
+# go to form to post new question
+get '/questions/new' do
+  erb :'questions/new'
+end
+
 # show specific question
 get '/questions/:id' do
   @question = Question.find_by_id(params[:id])
