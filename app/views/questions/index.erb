@@ -1,4 +1,10 @@
 <div class="container">
-  here is a list of questions!
-  
+  <% if @questions %>
+    <ul>
+    <% @questions.each do |question| %>
+      <li><%= question.title %></li>
+    <% end %>
+    </ul>
+  <% end %>
+
 </div>
