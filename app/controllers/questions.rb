@@ -12,7 +12,7 @@ end
 # show specific question
 get '/questions/:id' do
   @question = Question.find_by_id(params[:id])
-  @answers = Answer.find_by_id(params[:id])
+  @answers = Answer.where(question_id: params[:id])
   erb :'questions/show'
 end
 
@@ -20,7 +20,7 @@ end
 post '/questions' do
   # binding.pry
   @question = Question.new(title: params[:question], body: params[:body], user_id: current_user[:id])
-
+  @question.user = current_user
   if @question.save
     puts "question saved!"
     redirect "/questions/#{@question.id}"

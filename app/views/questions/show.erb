@@ -1,7 +1,17 @@
 
 <div class="container">
-  <p><h4><%= @question.title %></h4> <h6><%= @question.user.username%></p>
-  <hr><br>
-  <h6><%= @question.body %></h6>
+  <h4><%= @question.title %></h4> 
+  <p>by <%= @question.user.username%><p>
+  <p><%= @question.body %></p>
 
+</div>
+
+<div class="container">
+  <% if @answers %>
+  <ul>
+    <% @answers.each do |answer| %>
+      <em><%= answer.user.username %></em> says: <strong><%= answer.body %></strong> 
+    <% end %>
+  </ul>
+  <% end %>
 </div>
