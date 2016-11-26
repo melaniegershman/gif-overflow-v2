@@ -10,7 +10,7 @@ post '/sessions' do
     puts "user has logged in!"
     redirect "/users/#{@user.id}"
   else
-    @errors = @user.errors.full_messages
+    @errors = ["This username and password entry did not match."]
     erb :'sessions/new'
   end
 
