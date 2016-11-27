@@ -3,8 +3,7 @@ get '/sessions/new' do
 end
 
 post '/sessions' do
-  @user = User.find_by_email(params[:email])
-
+  @user = User.find_by_email(params[:email]).try(:authenticate, params[:password])
   if @user
     login
     puts "user has logged in!"
