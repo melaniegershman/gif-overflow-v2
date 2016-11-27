@@ -16,12 +16,3 @@
   </article>
 </div>
 
-<div class="container">
-  <% if @answers %>
-  <ul>
-    <% @answers.each do |answer| %>
-      <em><%= answer.user.username %></em> says: <strong><%= answer.body %></strong> 
-    <% end %>
-  </ul>
-  <% end %>
-</div>

@@ -1,6 +1,11 @@
 <% if !@answers.empty? %>
   <% @answers.each do |answer| %>
     <br> ---------------------- <br>
+    <% if logged_in? && owns_question?(@question) %>
+      <form action="/answers/<%=answer.id%>" method="post">
+        <input type="submit" value="Best Answer">
+      </form>
+    <% end %>
     <div class="answer">
       <%= answer.body %>
       <div class="author"><%= answer.user.username %></div>

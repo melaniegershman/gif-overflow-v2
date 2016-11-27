@@ -20,7 +20,7 @@ helpers do
   #   redirect '/'unless logged_in? && owns_post?(entry)
   # end
 
-  # def owns_post?(entry)
-  # current_user == entry.user
-  # end
+  def owns_question?(question)
+    current_user == question.user
+  end
 end
