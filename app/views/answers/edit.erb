@@ -1,7 +1,7 @@
 <h3> Edit Answer </h3>
 <form action='/questions/<%= @answer.question.id %>/answers/<%= @answer.id %>' method='post'>
   <input type='hidden' name='_method' value='put'>
-  <textarea rows='4' cols='50' name='body' placeholder='<%= @answer.body %>'></textarea>
+  <textarea rows='4' cols='50' name='body'><%= @answer.body %></textarea>
   <input type="submit" value="Submit">
 </form>
 <%= erb :'answers/_delete_button' %>
