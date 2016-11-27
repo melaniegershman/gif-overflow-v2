@@ -9,7 +9,7 @@
   <% if @questions %>
     <ul>
     <% @questions.each do |question| %>
-      <li><a class="collection-item" href="/questions/<%=question.id%>"><span class="badge"><%= question.votes.length %> Votes</span><span class="badge">4 Answer(s)</span><%= question.title %></a></li>
+      <li><a class="collection-item" href="/questions/<%=question.id%>"><span class="badge"><%= question.votes.length %> Votes</span><span class="badge"><%= question.answers.length %> Answer(s)</span><%= question.title %></a></li>
     <% end %>
     </ul>
   <% end %>
