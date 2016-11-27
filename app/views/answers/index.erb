@@ -6,6 +6,25 @@
       <div class="author"><%= answer.user.username %></div>
       <% @voteable = answer %>
       <%= erb :'votes/_vote_form' %>
-    </div>
-  <% end %>
+    </div> 
+   <% if logged_in? %>
+   <a href="/answers/<%="#{answer.id}"%>/comments/new">Comment</a>
+   <% end %>
+
+  &nbsp; &nbsp;<a id="clickmetoo">Show comments</a>
+  <div class="showanswer" data-collapsible="accordion">
+    <% answer.comments.each do |comment| %>
+    <%= comment.body %><br>
+    <%= User.find_by_id(comment.user_id).username %>
+    <hr><br>
+    <% end %>
+    <a id="hideme">Hide comments</a>
+  </div>
+
 <% end %>
+<% end %>
+
+
+
+
+

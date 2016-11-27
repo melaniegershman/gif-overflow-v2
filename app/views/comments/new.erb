@@ -1,0 +1,19 @@
+<h5>Leave a Comment here:</h5>
+
+<% if @question_id %>
+
+	<form method="post" action="/questions/<%="#{@question_id}"%>/comments">
+	   <textarea name="body" placeholder="Your comment here" style="width: 600px; height: 150px;">   	
+	   </textarea>
+	   <br><input type="submit" value="Submit">
+	</form>
+
+<% elsif @answer_id %>
+
+	<form method="post" action="/answers/<%="#{@answer_id}"%>/comments">
+	   <textarea name="body" placeholder="Your comment here" style="width: 600px; height: 150px;">   	
+	   </textarea>
+	   <br><input type="submit" value="Submit">
+	</form>
+
+<% end %>

@@ -1,10 +1,25 @@
 <div class="container">
+
   <article>
     <h2><%= @question.title %></h2>
     <h3><%= @question.body %></h3>
     <div class="author"><%= @question.user.username %></div>
     <% @voteable = @question %>
     <%= erb :'votes/_vote_form' %>
+
+  <% if logged_in? %>
+  <a href="/questions/<%="#{@question.id}"%>/comments/new">Comment</a>
+  <% end %>
+
+  &nbsp; &nbsp;<a id="clickme">Show comments</a>
+  <div class="show" data-collapsible="accordion">
+  <% @question.comments.each do |comment| %>
+  <%= comment.body %><br>
+  <%= User.find_by_id(comment.user_id).username %>
+  <hr><br>
+  <% end %>
+  <a id="hide">Hide comments</a>
+  </div>
 
     <div class="answers">
       <% @answers = @question.answers %>
@@ -14,4 +29,8 @@
     <%= erb :'answers/_form' %>
 
   </article>
+
 </div>
+
+
+

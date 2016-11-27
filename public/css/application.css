@@ -7,6 +7,14 @@ th {
   text-align: left;
 }
 
+.show {
+	display: none;
+}
+
+.showanswer {
+	display: none;
+}
+
 #logout input {
      background:none!important;
      border:none;
