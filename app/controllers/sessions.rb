@@ -3,14 +3,13 @@ get '/sessions/new' do
 end
 
 post '/sessions' do
-  @user = User.find_by_email(params[:email])
-
+  @user = User.find_by_email(params[:email]).try(:authenticate, params[:password])
   if @user
     login
     puts "user has logged in!"
     redirect "/users/#{@user.id}"
-  elsif !@user
-    @errors = @user.errors.full_messages
+  else
+    @errors = ["This username and password entry did not match."]
     erb :'sessions/new'
   end
 
