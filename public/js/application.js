@@ -1,17 +1,18 @@
-$(document).ready(function() {	
+$(document).ready(function() {
 
-$("#clickme").on("click", function() {
-  $('.show').show();	
-})
+  $("#clickme").on("click", function() {
+    $('.show').show();
+  })
 
-$("#hide").on("click", function() {
-  $('.show').hide();	
-})
+  $("#hide").on("click", function() {
+    $('.show').hide();
+  })
 
-  // This is called after the document has loaded in its entirety
-  // This guarantees that any elements we bind to will exist on the page
-  // when we try to bind to them
+  $("#clickmetoo").on("click", function() {
+    $('.showanswer').show();
+  })
 
-  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
-
+  $("#hideme").on("click", function() {
+    $('.showanswer').hide();
+  })
 });

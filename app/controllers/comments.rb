@@ -8,7 +8,7 @@ post '/questions/:id/comments' do
    comment = Comment.new(user_id: current_user.id, commentable_id: params[:id], body: params[:body], commentable_type: "Question")
    comment.save
    redirect "/questions/#{params[:id]}"
-end 
+end
 
 get '/answers/:answer_id/comments/new' do
    @commentable_type = "Answer"
@@ -17,7 +17,15 @@ get '/answers/:answer_id/comments/new' do
 end
 
 post '/answers/:id/comments' do
+<<<<<<< Updated upstream
    comment = Comment.new(user_id: current_user.id, commentable_id: params[:id], body: params[:body], commentable_type: "Answer")
    comment.save
    redirect "/answers/#{params[:id]}"
 end 
+=======
+   comment = Comment.create(user_id: current_user.id, commentable_id: params[:id], body: params[:body], commentable_type: "Answer")
+   answer = Answer.find_by_id(params[:id])
+
+   redirect "/questions/#{answer.question.id}"
+end
+>>>>>>> Stashed changes

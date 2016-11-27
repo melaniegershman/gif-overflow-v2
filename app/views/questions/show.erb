@@ -14,7 +14,7 @@
     <div class="show" data-collapsible="accordion">
       <% @question.comments.each do |comment| %>
         <%= comment.body %><br>
-        <%= User.find_by_id(comment.user_id).username %>
+        <%= comment.user.username %>
         <hr><br>
       <% end %>
       <a id="hide">Hide comments</a>
@@ -28,14 +28,4 @@
     <%= erb :'answers/_form' %>
 
   </article>
-</div>
-
-<div class="container">
-  <% if @answers %>
-  <ul>
-    <% @answers.each do |answer| %>
-      <em><%= answer.user.username %></em> says: <strong><%= answer.body %></strong>
-    <% end %>
-  </ul>
-  <% end %>
 </div>

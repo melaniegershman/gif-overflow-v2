@@ -3,10 +3,25 @@
   <div class="author"><%= @answer.user.username %></div>
   <% @voteable = @answer %>
   <%= erb :'votes/_vote_form' %>
+
   <% if logged_in? && current_user.id == @answer.user.id %>
     <div class="edit-link">
       <a href="/questions/<%= @answer.question.id %>/answers/<%= @answer.id %>/edit"> Edit </a>
       <%= erb :'answers/_delete_button' %>
     </div>
   <% end %>
+
+  <% if logged_in? %>
+    <a href="/answers/<%="#{answer.id}"%>/comments/new">Comment</a>
+  <% end %>
+
+  &nbsp; &nbsp;<a id="clickmetoo">Show comments</a>
+  <div class="showanswer" data-collapsible="accordion">
+    <% @answer.comments.each do |comment| %>
+      <%= comment.body %><br>
+      <%= comment.user.username %>
+      <hr><br>
+    <% end %>
+    <a id="hideme">Hide comments</a>
+  </div>
 </div>
