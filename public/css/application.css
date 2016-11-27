@@ -11,6 +11,10 @@ th {
 	display: none;
 }
 
+.showanswer {
+	display: none;
+}
+
 #logout input {
      background:none!important;
      border:none;
