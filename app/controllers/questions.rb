@@ -18,7 +18,6 @@ end
 
 # create a new question
 post '/questions' do
-  # binding.pry
   @question = Question.new(title: params[:question], body: params[:body], user_id: current_user[:id])
 
   if @question.save

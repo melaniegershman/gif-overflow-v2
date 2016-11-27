@@ -5,6 +5,7 @@ get '/questions/:question_id/votes/new' do
 end
 
 post '/votes' do
-  Vote.create(user: current_user, voteable_id: params[:voteable_id], voteable_type: convert_to_class_name(params[:voteable_type]))
+  Vote.create(user: current_user, voteable_id: params[:voteable_id], voteable_type: params[:voteable_type])
 
+  redirect "/questions/#{params[:question_id]}"
 end
