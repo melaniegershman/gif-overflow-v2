@@ -7,6 +7,10 @@ th {
   text-align: left;
 }
 
+.show {
+	display: none;
+}
+
 #logout input {
      background:none!important;
      border:none; 
