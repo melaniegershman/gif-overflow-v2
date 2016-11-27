@@ -1,0 +1,12 @@
+<div class="answer">
+  <%= @answer.body %>
+  <div class="author"><%= @answer.user.username %></div>
+  <% @voteable = @answer %>
+  <%= erb :'votes/_vote_form' %>
+  <% if logged_in? && current_user.id == @answer.user.id %>
+    <div class="edit-link">
+      <a href="/questions/<%= @answer.question.id %>/answers/<%= @answer.id %>/edit"> Edit </a>
+      <%= erb :'answers/_delete_button' %>
+    </div>
+  <% end %>
+</div>
