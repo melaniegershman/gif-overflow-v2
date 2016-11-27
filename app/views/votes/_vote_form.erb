@@ -1,4 +1,8 @@
+<div class="vote-count">
+  Vote Count: <%= @voteable.votes.count %>
+</div>
 <form class="up-vote" action="/votes" method="post">
+  <input type="hidden" name="question_id" value="<%= @question.id %>">
   <input type="hidden" name="voteable_type" value="<%= @voteable.class.to_s %>">
   <input type="hidden" name="voteable_id" value="<%= @voteable.id %>">
   <input type="submit" value="+1">

@@ -18,9 +18,14 @@ end
 
 # create a new question
 post '/questions' do
+<<<<<<< HEAD
   # binding.pry
   @question = Question.new(title: params[:question], body: params[:body], user_id: current_user.id)
   # @question.user = current_user
+=======
+  @question = Question.new(title: params[:question], body: params[:body], user_id: current_user[:id])
+
+>>>>>>> master
   if @question.save
     puts "question saved!"
     redirect "/questions/#{@question.id}"

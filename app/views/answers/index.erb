@@ -1,0 +1,11 @@
+<% if !@answers.empty? %>
+  <% @answers.each do |answer| %>
+    <br> ---------------------- <br>
+    <div class="answer">
+      <%= answer.body %>
+      <div class="author"><%= answer.user.username %></div>
+      <% @voteable = answer %>
+      <%= erb :'votes/_vote_form' %>
+    </div>
+  <% end %>
+<% end %>

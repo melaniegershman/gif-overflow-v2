@@ -1,0 +1,7 @@
+<div class='container'>
+  <h4> New Answer </h4>
+  <form action='/questions/<%= @question.id %>/answers' method='post'>
+    <textarea rows='4' cols='50' name='body' placeholder="Enter answer here..."></textarea>
+    <input type="submit" value="Submit">
+  </form>
+</div>
